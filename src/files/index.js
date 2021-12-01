@@ -2,7 +2,7 @@ const fs = require('fs'), path = require("path")
 const createBody = require("./formatText")
 const createFile = (data, route) =>{
     !fs.existsSync(route) && fs.mkdirSync(route);
-    fs.writeFileSync(`${route}/info.html`, createBody(data),  (err)=> {
+    fs.writeFileSync(path.join(route,"info.html"), createBody(data),  (err)=> {
         if (err) throw err;
         console.log("archivo creado exitosamente");
     });
